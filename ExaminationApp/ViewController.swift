@@ -30,20 +30,25 @@ class ViewController: UIViewController {
     
     /// 計算実行ボタン押下時の処理
     @IBAction private func calcurate(_: UIButton) {
-        var result = 0
-        if(selectedOperator == "+"){
-            result = Int(value1.text!)! + Int(value2.text!)!
-        }else if(selectedOperator == "-"){
-            result = Int(value1.text!)! - Int(value2.text!)!
-        }else if(selectedOperator == "×"){
-            result = Int(value1.text!)! * Int(value2.text!)!
-        }else if(selectedOperator == "÷"){
-            result = Int(value1.text!)! / Int(value2.text!)!
+        if(value1.text != "" && value2.text != ""){
+            var result = 0
+            if(selectedOperator == "+"){
+                result = Int(value1.text!)! + Int(value2.text!)!
+            }else if(selectedOperator == "-"){
+                result = Int(value1.text!)! - Int(value2.text!)!
+            }else if(selectedOperator == "×"){
+                result = Int(value1.text!)! * Int(value2.text!)!
+            }else if(selectedOperator == "÷"){
+                result = Int(value1.text!)! / Int(value2.text!)!
+            }
+            // TODO: 計算結果ラベルの値を書き換えるようにする
+            labelResult.text = "result: \(result)"
+        }else{
+            labelResult.text = "値を入力してください。"
         }
         
         
-        // TODO: 計算結果ラベルの値を書き換えるようにする
-        labelResult.text = "result: \(result)"
+        
     }
     
     }
